@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="AngularJS" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/Desktop/Nueva carpeta/angular-1.5.5/angular-1.5.5/angular.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/Desktop/Nueva carpeta/angular-1.5.5/angular-1.5.5/angular.js" />
+      <root url="file://$USER_HOME$/Desktop/Nueva carpeta/angular-1.5.5/angular-1.5.5/angular.min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
