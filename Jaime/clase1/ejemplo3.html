@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="ejemplo3.js"></script>
+</head>
+<body  ng-controller="MainController">
+    usuarios:
+    <select ng-model="elegido"
+    ng-options="usuario as usuario.nombre for usuario in usuarios" >
+        <option value="">--Elija un Usuario--</option>
+
+    </select>
+<p>
+    el valor elegido es {{elegido.nombre}} <br>
+    el id elegido es {{elegido.id}}
+</p>
+</body>
+</html>
