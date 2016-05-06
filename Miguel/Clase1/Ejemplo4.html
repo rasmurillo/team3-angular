@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEjm1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="ejemplo4.js"></script>
+</head>
+<body ng-controller="MainController">
+<p> Texto en MAY: {{ texto | uppercase }}</p>
+<p> Texto en MAY: {{ texto | lowercase }}</p>
+
+<p>Número efecto: {{ numero | number:2}}</p>
+
+<p>Precio: {{ precio | currency }}</p>
+
+<p>Fecha: {{ fecha | date:'dd/MM/yyyyy' }}</p>
+<p>Fecha corta1: {{ fecha | date:'short' }}</p>
+<p>Fecha corta2: {{ fecha | date:'shortDate' }}</p>
+<p></p>
+</body>
+</html>

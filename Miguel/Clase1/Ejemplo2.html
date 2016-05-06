@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEjm1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="ejemplo2.js"></script>
+</head>
+<body ng-controller="MainController">
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE<button ng-click="order('usuario.nombre')">Name</button></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="usuario in usuarios | orderBy:['nombre', -id]">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
