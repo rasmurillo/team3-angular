@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="ejemplo4.js"></script>
+</head>
+<body  ng-controller="MainController">
+    <p>Texto efecto MAY{{texto | uppercase}}</p>
+    <p>Texto efecto MIN{{texto | lowercase}}</p>
+    <p>numero efecto : {{numero |number;2}}</p>
+    <p>precio : {{precio | currency}}</p>
+    <p>fecha : {{precio  |currency}}</p>
+    <p>fecha corta 1 : {{fecha | date:'short'}}</p>
+    <p>fecha corta 2 : {{fecha | date:'shortDate'}}</p>
+
+</body>
+</html>
