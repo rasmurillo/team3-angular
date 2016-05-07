@@ -13,3 +13,13 @@ function MainController($scope){
     }
 }
 app.controller('MainController',MainController);
+
+var module = angular.module('miModulo',[]);
+
+module.config([function(){
+    alert('Yo voy primero');
+}]);
+
+module.run([function(){
+    alert('Yo voy segundo');
+}]);
