@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <link href="ejemplo4.css">
+</head>
+<body>
+<div ng-init="checked=true">
+    <label>
+        <input type="checkbox" ng-model="cheked"
+        style="float:left;margin-right: 10px"> Visible
+    </label>
+    <div class="check-element ejemplo4-show-hide"
+    ng-show="checked">
+        Visible
+    </div>
+
+</div>
+
+</body>
+</html>
