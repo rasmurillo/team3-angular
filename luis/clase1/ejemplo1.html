@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src= "angular.min.js"></script>
+    <script src="ejemplo1.js"></script>
+</head>
+<body ng-controller="maincontroller">
+<input type="text" ng-model="nombre" ng-disabled="nombre=='Mabel'">
+<div>
+    el id usuario es :{{usuario.id}}
+    el usuario es: {{usuario.nombre}}
+</div>
+<button ng-click="CambiarNombre()"> Cambiar nombre</button>
+
+<div ng-show="nombre=='juan'">Texto con efecto1</div>
+<div ng-hide="nombre=='Alex'">Texto con efecto2</div>
+</body>
+</html>
