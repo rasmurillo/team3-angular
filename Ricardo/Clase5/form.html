@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formulario">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <style>
+        input.ng-invalid{
+            background-color: pink;
+        }
+        input.ng-valid{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="EjemploForm">
+    <form name="demoForm">
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="nombre" ng-model="usuario.nombre" required my-directive >
+                <span ng-show="demoForm.nombre.$error.required" >El Nombre es requerido </span>
+                </td>
+            </tr>
+            <tr>
+                <td>Monto:</td>
+                <td><input type="text" name="monto" ng-model="usuario.monto" required ui-number-mask="3"">
+                    <span ng-show="demoForm.nombre.$error.required" >El Nombre es requerido </span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" ng-model="usuario.email"></td>
+            </tr>
+            <tr>
+                <td>Genero</td>
+                <td><input type="radio" ng-model="usuario.genero" value="femenino">
+                    <input type="radio" ng-model="usuario.genero" value="masculino">
+                </td>
+            </tr>
+            <tr>
+                <td COLSPAN="2">
+                    <input type="button" ng-click="reset()" value="Limpiar">
+                    <input type="submit" ng-disabled="demoForm.nombre.$touched" ng-click="actualizarUsuario(usuario)" value="Guardar">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <pre>usuario {{usuario|json}}</pre>
+ </div>
+<script>
+    angular.module('formulario',[])
+            .directive('myDirective',function () {
+                return {
+                  require:'ngModel',
+                    link:function (scope, element, attr, mCtrl) {
+                        function validaNombre(value) {
+                            if (value.indexOf("e")>-1){
+                                mCtrl.$setValidity('charE',true);
+                            } else {
+                                mCtrl.$setValidity('charE',false);
+                            }
+                            return value;
+                        }
+                        mCtrl.$parsers.push(validaNombre);
+                    }
+                };
+            })
+            .controller('EjemploForm',['$scope',function ($scope) {
+                $scope.reset=function () {
+                    $scope.usuario={};
+                }
+                $scope.actualizarUsuario=function (usuario) {
+                    alert('el usuario fue registrado correctamente');
+                }
+                $scope.reset();
+
+            }]);
+</script>
+</body>
+</html>
