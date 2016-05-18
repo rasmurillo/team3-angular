@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formulario">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div ng-controller="EjemploForm">
+    <form novalidate>
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" class="form-control" ng-model="usuario.nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="email" class="form-control" ng-model="usuario.email">
+                </td>
+            </tr>
+            <tr>
+                <td COLSPAN="2">
+                    <input type="button" class="btn btn-info" ng-click="reset()" value="Limpiar">
+                    <input type="submit" class="btn btn-success" ng-click="actualizarUsuario(usuario)" value="Guardar">
+                </td>
+
+            </tr>
+
+        </table>
+    </form>
+</div>
+<script>
+    angular.module('formulario',[])
+            .controller('EjemploForm',['$scope',function ($scope) {
+                $scope.reset=function () {
+                    $scope.usuario={};
+                }
+                $scope.actualizarUsuario=function (usuario) {
+                    alert('el usuario fue registrado correctamente')
+                }
+                $scope.reset();
+            }]);
+</script>
+</body>
+</html>
