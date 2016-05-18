@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formulario">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <style>
+        input.ng-invalid{
+            background-color:orange ;
+        }
+        input.ng-valid{
+            background-color:greenyellow ;
+        }
+    </style>
+
+</head>
+<body>
+    <br></br>
+    <div ng-controller="EjemploForm">
+        <form novalidate name="FormularioAlmacen">
+            <table>
+                <tr>
+                    <td>CODIGO_ALMACEN:</td>
+                    <td>
+                        <input class="form-control" name="codigo" type="text" ng-model="almacen.codigo" required my-directive>
+                        <span ng-show="FormularioAlmacen.codigo.$untouched && FormularioAlmacen.codigo.$invalid">El nombre es requerido</span>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>NOMBRE ALMACEN:</td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="almacen.nombre">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>DIRECCION:</td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="almacen.direccion">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>TELEFONO:</td>
+                    <td>
+                        <input class="form-control" type="number" ng-model="almacen.telefono">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>NOMBRE ENCARGADO:</td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="almacen.encargado">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>HABILITADO:</td>
+                    <td><input class="btn btn-success" type="radio" ng-model="almacen.habilitado" value="SI">
+                        <!--<input type="radio" ng-model="usuario.habilitado" value="NO"> -->
+                    </td>
+                </tr>
+
+                <tr>
+                    <td COLSPAN="2">
+                        <input type= "submit" class="btn btn-success" ng-click="reset()" value="Limpiar">
+                        <!-- <input type="submit" ng-click="actualizarAlmacen(almacen)" value="Guardar">-->
+                         <input type="submit" class="btn btn-warning" ng-click="actualizarAlmacen(almacen)" value="Guardar">
+                     </td>
+
+                 </tr>
+
+             </table>
+         </form>
+         <pre>almacen{{almacen|json}}</pre>
+     </div>
+ <script>
+     angular.module('formulario',[])
+             .directive('my-directive',function () {
+                 return{
+                     require:'ngModel',
+                        link:function (scope, element, attr, mCtrl) {
+                            function validaCodigo(value) {
+                                if(value.indexOf("e")>-1){
+                                    mCtrl.$setValidity('charE',true);
+                                } else {
+                                    mCtrl.$setValidity('charE',false);
+                                }
+                                return value;
+                            }
+                         mCtrl.$parsers.push(validaCodigo);
+                     }
+                 };
+
+             })
+             .controller('EjemploForm',['$scope',function ($scope) {
+                    $scope.reset=function () {
+                          $scope.almacen={};
+                             }
+                 $scope.actualizarAlmacen=function (almacen) {
+                     alert('El almacen fue registrado correctamente')
+                 }
+                 $scope.reset();
+             }]);
+ </script>
+ </body>
+ </html>
