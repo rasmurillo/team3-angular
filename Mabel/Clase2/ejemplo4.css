@@ -1,0 +1,13 @@
+.ejemplo4-show-hide{
+    padding:10px;
+    border: 1px solid black;
+    background: white;
+}
+.ejemplo4-show-hide{
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    background: white;
+}
+.ejemplo4-show-hide{
+    opacity:0;
+    }
