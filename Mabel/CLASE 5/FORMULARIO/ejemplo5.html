@@ -23,7 +23,7 @@
         <form novalidate name="FormularioAlmacen">
             <table>
                 <tr>
-                    <td>CODIGO_ALMACEN:</td>
+                    <td>CODIGO ALMACEN:</td>
                     <td>
                         <input class="form-control" name="codigo" type="text" ng-model="almacen.codigo" required my-directive>
                         <span ng-show="FormularioAlmacen.codigo.$untouched && FormularioAlmacen.codigo.$invalid">El nombre es requerido</span>
@@ -50,6 +50,13 @@
                     <td>TELEFONO:</td>
                     <td>
                         <input class="form-control" type="number" ng-model="almacen.telefono">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>NOMBRE ENCARGADO:</td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="almacen.encargado">
                     </td>
                 </tr>
 
