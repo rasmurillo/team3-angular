@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formulario">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div ng-controller="EjemploForm">
+
+    <br>
+    <form class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="inputCI" class="col-sm-2 control-label">C.I.</label>
+            <div class="col-sm-3">
+                <input type="email" class="form-control" id="inputCI" placeholder="Carnet Identidad...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputNombres" class="col-sm-2 control-label">Nombre(s):</label>
+            <div class="col-sm-5">
+                <input type="email" class="form-control" id="inputNombres" placeholder="Nombre(s)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputApellidos" class="col-sm-2 control-label">Apellido(s):</label>
+            <div class="col-sm-5">
+                <input type="email" class="form-control" id="inputApellidos" placeholder="Apellido(s)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-5">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFecha" class="col-sm-2 control-label">Fecha Registro:</label>
+            <div class="col-sm-3">
+                <input type="email" class="form-control" id="inputFecha" placeholder="dd/mm/yyyy">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info" ng-click="reset()">Limpiar</button>
+                <button type="submit" class="btn btn-success" ng-click="actualizarUsuario(usuario)">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    angular.module('formulario',[])
+            .controller('EjemploForm',['$scope',function ($scope) {
+                $scope.reset=function () {
+                    $scope.usuario={};
+                }
+                $scope.actualizarUsuario=function (usuario) {
+                    alert('el usuario fue registrado correctamente')
+                }
+                $scope.reset();
+            }]);
+</script>
+</body>
+</html>

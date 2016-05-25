@@ -9,9 +9,29 @@ app.factory('funUpper',function(){
         return value.toUpperCase();
     }
 });
-function MainController($scope,codigoCliente,FNDR,funUpper){
+app.service('servicio1',function () {
+    this.titulo='Pruebas123';
+});
+app.provider('prefix',[function () {
+    var prefix = '';
+    this.setPrefix=function(value){
+        prefix=value;
+    };
+    this.$get=[function () {
+        return function(value){
+            return prefix+value;
+        }
+    }];
+}]);
+app.config(['prefixProvider',function (prefixProvider) {
+    prefixProvider.setPrefix('Ricardo');
+}]);
+function MainController($scope,codigoCliente,FNDR,funUpper,servicio1,prefix){
     $scope.codigo=codigoCliente;
     $scope.constante=FNDR;
     $scope.texto2=funUpper(FNDR);
+    $scope.texto3=servicio1.titulo;
+    $scope.texto4=prefix('Alex');
+
 }
 app.controller('MainController',MainController);
