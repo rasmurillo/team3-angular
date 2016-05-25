@@ -13,3 +13,13 @@
         }
     }
     app.controller('MainController',MainController);
+
+
+var module = angular.module('myModule', []);
+module.config([function() {
+    alert('yo soy primero');
+}]);
+
+module.run([function() {
+    alert('yo soy segundo');
+}]);

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formulario">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bootstrap.min.js"></script>
+    <script src="angular.min.js"></script>
+    <style>
+        input.ng-invalid{
+            background-color: pink;
+        }
+        input.ng-valid{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="EjemploForm">
+    <form name="demoForm">
+        <div>
+            <div>
+                <label >id producto</label>
+                <td> <input class="form-control" type="text" name="id" ng-model="producto.id_producto" required my-directive>
+                    <span ng-show="demoForm.id.$untouched && demoForm.id.$invalid">el id es requerido</span>
+
+                </td>
+            </div>
+            <div>
+                <td> nombre producto:  </td>
+                <td> <input class="form-control" type="text"  name="nombre" ng-model="producto.nombre_producto"> </td>
+            </div>
+            <div>
+                <td> descripcion: </td>
+                <td> <input class="form-control" type="text"ng-model="producto.descripcion"></td>
+            </div>
+            <div>
+                <td> unidad de medida: </td>
+                <td> <input class="form-control" type="text"ng-model="producto.unidad_medida"></td>
+            </div>
+            <div>
+                <td> cantidad: </td>
+                <td> <input class="form-control" type="text"ng-model="producto.cantidad"></td>
+            </div>
+            <div>
+                <td COLSPAN="2" >
+                    <input type="button"ng-click="reset()" value="Limpiar">
+                    <input type="submit" ng-click="actualizarProducto(usuario)" value="Guardar">
+                </td>
+
+            </div>
+
+        </div>
+    </form>
+    <pre>producto {{producto|json}}</pre>
+</div>
+<script>
+    angular.module('formulario',[])
+            .directive('myDirective',function () {
+                return{
+                  require:'ngModel',
+                    link:function (scope, element, attr, mCtrl) {
+                        function validaNombre(value) {
+                            if(value.indexOf("e")>-1){
+                                mCtrl.$setValidity('charE',true);
+                            }else{
+                                mCtrl.$setValidity('charE',false);
+                            }
+                            return value
+                        }
+                        mCtrl.$parsers.push(validaNombre)
+                    }
+
+                };
+            })
+            .controller('EjemploForm',['$scope',function ($scope) {
+                $scope.reset= function () {
+                    $scope.producto={};
+
+                }
+                $scope.actualiarProducto= function (producto) {
+                    alert('el producto fue registrado correctamente');
+
+                }
+                $scope.reset;
+            }
+
+            ]);
+</script>
+</body>
+</html>
