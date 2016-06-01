@@ -1,0 +1,23 @@
+{
+  "name": "clase4",
+  "version": "1.0.0",
+  "description":"hola mundo nodejs webstorn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hola",
+    "mongo"
+  ],
+
+  "author": "jaime veliz",
+
+  "license": "ISC",
+  "dependencies": {
+    "express":"^4.13.4"
+  }
+}
+
+
+

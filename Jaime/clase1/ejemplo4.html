@@ -7,13 +7,17 @@
     <script src="ejemplo4.js"></script>
 </head>
 <body  ng-controller="MainController">
-    <p>Texto efecto MAY{{texto | uppercase}}</p>
-    <p>Texto efecto MIN{{texto | lowercase}}</p>
-    <p>numero efecto : {{numero |number;2}}</p>
-    <p>precio : {{precio | currency}}</p>
-    <p>fecha : {{precio  |currency}}</p>
-    <p>fecha corta 1 : {{fecha | date:'short'}}</p>
-    <p>fecha corta 2 : {{fecha | date:'shortDate'}}</p>
+    <p>Texto efecto MAY: {{texto | uppercase }}</p>
+    <p>Texto efecto MIN: {{texto | lowercase }}</p>
+    <p>Numero efecto : {{ numero| number:2}}</p>
+
+    <p>Precio : {{ precio | currency}}</p>
+
+    <p>Fecha : {{ fecha | date:'dd/MM/yyyy'}}</p>
+    <p>Fecha corta 1: {{ fecha | date:'short'}}</p>
+    <p>Fecha corta 2: {{ fecha | date:'shortDate'}}</p>
+
+    <p>Texto efecto personalizado: {{texto | reverse:true }}</p>
 
 </body>
 </html>
